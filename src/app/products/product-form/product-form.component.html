@@ -1,0 +1,29 @@
+<form [formGroup]="productForm" class="form-horizontal" (submit)="onSubmit()">
+  <fieldset>
+  
+  <!-- Form Name -->
+  <legend>Product</legend>
+  
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="description">Description</label>  
+    <div class="col-md-4">
+    <input formControlName="description" id="description" name="description" type="text" placeholder="" class="form-control input-md">
+      
+    </div>
+  </div>
+  
+  <!-- Text input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="price">Price</label>  
+    <div class="col-md-4">
+    <input formControlName="price" id="price" name="price" type="text" placeholder="" class="form-control input-md">
+      
+    </div>
+  </div>
+  
+  </fieldset>
+  <button [disabled]="productForm.invalid" type="submit" class="btn btn-primary btn-block">Submit</button>
+
+  </form>
+  
