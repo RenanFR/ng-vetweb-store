@@ -17,4 +17,8 @@ export class ProductsService {
     return this.httpClient.post<Product>(api, product);
   }
 
+  getProducts(): Observable<Product[]> {
+    return this.httpClient.get<Product[]>(api);
+  }
+
 }

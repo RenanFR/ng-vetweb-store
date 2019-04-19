@@ -1,3 +1,10 @@
-<p>
-  products works!
-</p>
+<hot-table
+  [colHeaders]="true"
+  [rowHeaders]="true"
+  [data]="products">
+
+  <hot-column data="id" [readOnly]="true" title="ID"></hot-column>
+  <hot-column data="description" title="Description"></hot-column>
+  <hot-column data="price" title="Price"></hot-column>
+
+</hot-table>

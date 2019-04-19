@@ -1,7 +1,12 @@
 export class Product {
 
-    constructor(private description: string, private price: number) {
+    id: number;
+    description:string;
+    price:number;
 
+    constructor(description: string, price: number) {
+        this.description = description;
+        this.price = price;
     }
 
 }

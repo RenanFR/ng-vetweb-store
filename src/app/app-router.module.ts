@@ -3,11 +3,16 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './home/login/login.component';
 import { ProductFormComponent } from './products/product-form/product-form.component';
+import { ProductsComponent } from './products/products.component';
 
 const routes: Routes = [
   {
     path: 'product/form',
     component: ProductFormComponent
+  },
+  {
+    path: 'products',
+    component: ProductsComponent
   },  
   {
     path: '**',
