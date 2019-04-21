@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { ProductsModule } from './products/products.module';
 import { LoginModule } from './home/login/login.module';
 import { AppRouterModule } from './app-router.module';
+import { CategoryModule } from './category/category.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { AppRouterModule } from './app-router.module';
   imports: [
     BrowserModule,
     ProductsModule,
+    CategoryModule,
     LoginModule,    
     AppRouterModule
   ],

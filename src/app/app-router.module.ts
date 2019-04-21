@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './home/login/login.component';
 import { ProductFormComponent } from './products/product-form/product-form.component';
 import { ProductsComponent } from './products/products.component';
+import { CategoryFormComponent } from './category/category.form.component';
+import { CategoriesComponent } from './category/categories.component';
 
 const routes: Routes = [
   {
@@ -15,8 +17,16 @@ const routes: Routes = [
     component: ProductsComponent
   },  
   {
-    path: '**',
-    component: LoginComponent
+    path: 'category/form',
+    component: CategoryFormComponent
+  },    
+  {
+    path: 'categories',
+    component: CategoriesComponent
+  },      
+  {
+    path: '',
+    component: ProductsComponent
   }
 ]
 @NgModule({
