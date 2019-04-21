@@ -14,8 +14,8 @@ export class ProductsService {
   constructor(private httpClient: HttpClient) {
   }
 
-  saveProduct(product: Product): Observable<string> {
-    return this.httpClient.post<string>(this.api, product, { responseType: 'json' });
+  saveProduct(product: Product): Observable<any> {
+    return this.httpClient.post(this.api, product, { responseType: 'text' });
   }
 
   getProducts(): Observable<Product[]> {

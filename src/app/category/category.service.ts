@@ -11,8 +11,8 @@ export class CategoryService {
 
   constructor(private httpClient:HttpClient) { }
 
-  save(category:Category):Observable<Object> {
-    return this.httpClient.post<Object>(api, category);
+  save(category:Category):Observable<any> {
+    return this.httpClient.post(api, category,{responseType: 'text'});
   }
 
   getCategories():Observable<Category[]> {

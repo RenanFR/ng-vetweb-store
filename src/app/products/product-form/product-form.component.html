@@ -4,7 +4,7 @@
   <!-- Form Name -->
   <legend>Product</legend>
   
-  <!-- Text input-->
+  <!-- Description input-->
   <div class="form-group">
     <label class="col-md-4 control-label" for="description">Description</label>  
     <div class="col-md-4">
@@ -13,12 +13,22 @@
     </div>
   </div>
   
-  <!-- Text input-->
+  <!-- Price input-->
   <div class="form-group">
     <label class="col-md-4 control-label" for="price">Price</label>  
     <div class="col-md-4">
-    <input formControlName="price" id="price" name="price" type="text" placeholder="" class="form-control input-md">
+    <input formControlName="price" id="price" name="price" type="number" placeholder="" class="form-control input-md">
       
+    </div>
+  </div>
+
+  <!-- Category input-->
+  <div class="form-group">
+    <label class="col-md-4 control-label" for="price">Category</label>  
+    <div class="col-md-4">
+      <select formControlName="category">
+        <option [ngValue]="category" *ngFor="let category of categories">{{category.description}}</option>
+      </select>        
     </div>
   </div>
   

@@ -9,7 +9,7 @@ import { CategoryService } from './category.service';
 export class CategoryFormComponent implements OnInit {
 
   category:Category = new Category();
-  response:string = 'youtube';
+  response:string = '';
 
   constructor(private service:CategoryService) { }
 
