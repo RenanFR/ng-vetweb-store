@@ -1,3 +1,5 @@
+<span #amtProds class="badge badge-info">{{  amountProducts  }} products</span>
+
 <hot-table
   [colHeaders]="true"
   [rowHeaders]="true"
@@ -5,5 +7,7 @@
 
   <hot-column data="id" [readOnly]="true" title="ID"></hot-column>
   <hot-column data="description" title="Description"></hot-column>
+  <hot-column data="amountProducts" title="Amount of products"></hot-column>
+  <hot-column data="percentageOfTotal" title="Percentage of total"></hot-column>
 
 </hot-table>

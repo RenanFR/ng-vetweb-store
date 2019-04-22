@@ -34,5 +34,9 @@ export class ProductsService {
     return this.httpClient.get<Product>(`${this.api}/${id}`);
   }
 
+  getTotal():Observable<any> {
+    return this.httpClient.get(`${this.api}/total`);
+  }
+
 
 }
