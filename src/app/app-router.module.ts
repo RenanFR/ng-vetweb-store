@@ -26,7 +26,7 @@ const routes: Routes = [
   },      
   {
     path: '',
-    component: ProductsComponent
+    component: LoginComponent
   }
 ]
 @NgModule({

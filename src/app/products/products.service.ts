@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 
 export class ProductsService {
 
-  private api = 'http://localhost:8080/vetweb/store/api/products'
+  private api = 'http://localhost:8080/vetweb/store/api/products';
 
   constructor(private httpClient: HttpClient) {
   }

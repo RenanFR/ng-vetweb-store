@@ -1,3 +1,32 @@
-<p>
-  login works!
-</p>
+<h4 class="text-center">Login</h4>
+
+<form [formGroup]="authForm" class="form mt-4" (submit)="login()">
+
+    <div class="form-group">
+        <input #nameInput
+            formControlName="name"
+            class="form-control" 
+            placeholder="user name" 
+            autofocus>
+        <vetweb-error *ngIf="authForm.get('name').errors?.required" errorMessage="User name is required!"></vetweb-error>
+    </div>
+
+    <div class="form-group">
+        <input
+            formControlName="password"
+            type="password" 
+            class="form-control" 
+            placeholder="password">  
+        <vetweb-error *ngIf="authForm.get('password').errors?.required" errorMessage="Password is required!"></vetweb-error>
+    </div>
+
+    <button 
+        [disabled]="authForm.invalid"
+        type="submit" 
+        class="btn btn-primary btn-block">
+        Login
+    </button>
+
+</form>
+
+<p>Not a user?<a>Register now</a></p>
