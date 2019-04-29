@@ -4,6 +4,7 @@ import { AuthenticationService } from './authentication.service';
 import { Router } from '@angular/router';
 import { UserInfo } from './user.info';
 import { PlatformRuntimeDetectorService } from 'src/app/shared/platform.runtime.detector.service';
+import { TokenService } from 'src/app/shared/token.service';
 
 @Component({
   templateUrl: './login.component.html'
@@ -17,6 +18,7 @@ export class LoginComponent implements OnInit {
     private authFormBuilder: FormBuilder,
     private authService: AuthenticationService,
     private platformDetector: PlatformRuntimeDetectorService,
+    private tokenService: TokenService,
     private router: Router
   ) { }
 
@@ -25,8 +27,7 @@ export class LoginComponent implements OnInit {
     this.authService
       .login(user.name, user.password)
       .subscribe(
-        (response) => {
-            console.log(response.token);
+        () => {
             this.router.navigate(['products']);
         },
         error => {

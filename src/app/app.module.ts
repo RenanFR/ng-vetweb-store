@@ -6,6 +6,7 @@ import { ProductsModule } from './products/products.module';
 import { LoginModule } from './home/login/login.module';
 import { AppRouterModule } from './app-router.module';
 import { CategoryModule } from './category/category.module';
+import { HomeModule } from './home/home.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { CategoryModule } from './category/category.module';
     BrowserModule,
     ProductsModule,
     CategoryModule,
-    LoginModule,    
+    LoginModule,
+    HomeModule,
     AppRouterModule
   ],
   providers: [],

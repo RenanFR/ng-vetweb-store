@@ -23,7 +23,9 @@
     "@handsontable/angular": "^4.0.0",
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
+    "font-awesome": "^4.7.0",
     "handsontable": "^7.0.2",
+    "jwt-decode": "^2.2.0",
     "rxjs": "6.0.0",
     "zone.js": "^0.8.26"
   },

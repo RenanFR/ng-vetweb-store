@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Product } from './product';
 import { Observable } from 'rxjs';
+import { UsefulConstants } from '../shared/useful.constants';
 
 @Injectable({
   providedIn: 'root'
@@ -9,33 +10,31 @@ import { Observable } from 'rxjs';
 
 export class ProductsService {
 
-  private api = 'http://localhost:8080/vetweb/store/api/products';
-
   constructor(private httpClient: HttpClient) {
   }
 
   saveProduct(product: Product): Observable<any> {
-    return this.httpClient.post(this.api, product, { responseType: 'text' });
+    return this.httpClient.post(UsefulConstants.PRODUCTS_API, product, { responseType: 'text' });
   }
 
   getProducts(): Observable<Product[]> {
-    return this.httpClient.get<Product[]>(this.api);
+    return this.httpClient.get<Product[]>(UsefulConstants.PRODUCTS_API);
   }
 
   delete(id: number):Observable<string> {
-    return this.httpClient.delete<string>(`${this.api}/${id}`);
+    return this.httpClient.delete<string>(`${UsefulConstants.PRODUCTS_API}/${id}`);
   }
 
   edit(product: Product): Observable<string> {
-    return this.httpClient.put<string>(this.api, product);
+    return this.httpClient.put<string>(UsefulConstants.PRODUCTS_API, product);
   }
 
   findById(id: number):Observable<Product> {
-    return this.httpClient.get<Product>(`${this.api}/${id}`);
+    return this.httpClient.get<Product>(`${UsefulConstants.PRODUCTS_API}/${id}`);
   }
 
   getTotal():Observable<any> {
-    return this.httpClient.get(`${this.api}/total`);
+    return this.httpClient.get(`${UsefulConstants.PRODUCTS_API}/total`);
   }
 
 

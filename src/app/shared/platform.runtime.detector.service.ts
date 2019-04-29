@@ -12,7 +12,6 @@ export class PlatformRuntimeDetectorService {
 
     public checkIfItRunningOnBrowser(): boolean {
         let isBrowser:boolean = isPlatformBrowser(this.serverSideOrClientSideIdentifier);
-        console.log(this.serverSideOrClientSideIdentifier);
         return isBrowser;
     }
 
