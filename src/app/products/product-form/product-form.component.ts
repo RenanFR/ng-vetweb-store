@@ -5,6 +5,7 @@ import { Product } from '../product';
 import { CategoryService } from 'src/app/category/category.service';
 import { Category } from 'src/app/category/category';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-product-form',
@@ -44,6 +45,7 @@ export class ProductFormComponent implements OnInit {
     this.service.saveProduct(this.product)
       .subscribe(data => {
           console.log(data);
+          this.service.newProductSubject.next(true);
     });
     this.router.navigateByUrl('products');
   }
