@@ -23,7 +23,7 @@ export class CategoriesComponent implements OnInit {
      this.service.getCategories()
       .subscribe((cat) => {
           this.categories = cat;
-          this.categories = this.categories.map(c => Object.assign({}, c, { 'percentageOfTotal': ((c.amountProducts/parseInt(this.amountProds.nativeElement.textContent.match(/\d/g).toString())) * 100).toString() + '%' }));
+          this.categories = this.categories.map(c => Object.assign({}, c, { 'percentageOfTotal': (c.amountProducts/this.amountProducts).toString() + '%' }));
           console.log(this.categories);
       });
   }
