@@ -1,39 +1,40 @@
-<form [formGroup]="productForm" class="form-horizontal" (submit)="onSubmit()">
-  <fieldset>
-  
-  <!-- Form Name -->
-  <legend>Product</legend>
-  
-  <!-- Description input-->
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="description">Description</label>  
-    <div class="col-md-4">
-    <input formControlName="description" id="description" name="description" type="text" placeholder="" class="form-control input-md">
-      
+<vetweb-layout>
+  <form [formGroup]="productForm" class="form-horizontal" (submit)="onSubmit()">
+    <fieldset>
+    
+    <!-- Form Name -->
+    <legend>Product</legend>
+    
+    <!-- Description input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="description">Description</label>  
+      <div class="col-md-4">
+      <input formControlName="description" id="description" name="description" type="text" placeholder="" class="form-control input-md">
+        
+      </div>
     </div>
-  </div>
-  
-  <!-- Price input-->
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="price">Price</label>  
-    <div class="col-md-4">
-    <input formControlName="price" id="price" name="price" type="number" placeholder="" class="form-control input-md">
-      
+    
+    <!-- Price input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="price">Price</label>  
+      <div class="col-md-4">
+      <input formControlName="price" id="price" name="price" type="number" placeholder="" class="form-control input-md">
+        
+      </div>
     </div>
-  </div>
 
-  <!-- Category input-->
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="price">Category</label>  
-    <div class="col-md-4">
-      <select formControlName="category">
-        <option [ngValue]="category" *ngFor="let category of categories">{{category.description}}</option>
-      </select>        
+    <!-- Category input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="price">Category</label>  
+      <div class="col-md-4">
+        <select formControlName="category">
+          <option [ngValue]="category" *ngFor="let category of categories">{{category.description}}</option>
+        </select>        
+      </div>
     </div>
-  </div>
-  
-  </fieldset>
-  <button [disabled]="productForm.invalid" type="submit" class="btn btn-primary btn-block">Submit</button>
+    
+    </fieldset>
+    <button [disabled]="productForm.invalid" type="submit" class="btn btn-primary btn-block">Submit</button>
 
   </form>
-  
+</vetweb-layout>  

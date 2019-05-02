@@ -1,29 +1,31 @@
-<div class="card mb-3">
-    <div class="card-header">
-      <i class="fas fa-table"></i>
-      Categories
-    </div>
-    <div class="card-body">
-      <div class="table-responsive">
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Description</th>
-              <th>Amount of products</th>
-              <th>Percentage of total</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let category of categories">
-              <td>{{category.id}}</td>
-              <td>{{category.description}}</td>
-              <td>{{category.amountProducts}}</td>
-              <td>{{category.percentageOfTotal}}</td>
-            </tr>
-          </tbody>
-        </table>
+<vetweb-layout>
+  <div class="card mb-3">
+      <div class="card-header">
+        <i class="fas fa-table"></i>
+        Categories
       </div>
-    </div>
-    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Description</th>
+                <th>Amount of products</th>
+                <th>Percentage of total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let category of categories">
+                <td>{{category.id}}</td>
+                <td>{{category.description}}</td>
+                <td>{{category.amountProducts}}</td>
+                <td>{{category.percentageOfTotal}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
   </div>
+</vetweb-layout>

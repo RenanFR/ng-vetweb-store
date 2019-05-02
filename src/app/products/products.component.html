@@ -1,29 +1,31 @@
-<div class="card mb-3">
-    <div class="card-header">
-      <i class="fas fa-table"></i>
-      Products
-    </div>
-    <div class="card-body">
-      <div class="table-responsive">
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Description</th>
-              <th>Price</th>
-              <th>Category</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let prod of products">
-              <td>{{prod.id}}</td>
-              <td>{{prod.description}}</td>
-              <td>{{prod.price}}</td>
-              <td>{{prod.category.description}}</td>
-            </tr>
-          </tbody>
-        </table>
+<vetweb-layout>
+  <div class="card mb-3">
+      <div class="card-header">
+        <i class="fas fa-table"></i>
+        Products
       </div>
-    </div>
-    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Category</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let prod of products">
+                <td>{{prod.id}}</td>
+                <td>{{prod.description}}</td>
+                <td>{{prod.price}}</td>
+                <td>{{prod.category.description}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
   </div>
+</vetweb-layout>

@@ -6,6 +6,7 @@ import { ProductFormComponent } from './products/product-form/product-form.compo
 import { ProductsComponent } from './products/products.component';
 import { CategoryFormComponent } from './category/category.form.component';
 import { CategoriesComponent } from './category/categories.component';
+import { AuthenticationBaseComponent } from './home/auth.base.component';
 
 const routes: Routes = [
   {
@@ -25,8 +26,14 @@ const routes: Routes = [
     component: CategoriesComponent
   },      
   {
-    path: '',
-    component: LoginComponent
+    path: 'login',
+    component: AuthenticationBaseComponent,
+    children: [
+      {
+        path: '', 
+        component: LoginComponent
+      }
+  ]    
   }
 ]
 @NgModule({
