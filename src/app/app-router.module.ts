@@ -10,6 +10,16 @@ import { AuthenticationBaseComponent } from './home/auth.base.component';
 
 const routes: Routes = [
   {
+    path: 'login',
+    component: AuthenticationBaseComponent,
+    children: [
+      {
+        path: '', 
+        component: LoginComponent
+      }
+  ]    
+  },
+  {
     path: 'product/form',
     component: ProductFormComponent
   },
@@ -24,17 +34,7 @@ const routes: Routes = [
   {
     path: 'categories',
     component: CategoriesComponent
-  },      
-  {
-    path: 'login',
-    component: AuthenticationBaseComponent,
-    children: [
-      {
-        path: '', 
-        component: LoginComponent
-      }
-  ]    
-  }
+  }      
 ]
 @NgModule({
   imports: [

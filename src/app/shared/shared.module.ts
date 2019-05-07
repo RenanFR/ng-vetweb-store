@@ -1,9 +1,6 @@
 import { NgModule } from "@angular/core";
-import { ErrorMessageComponent } from "./messages/error.message.component";
 import { MessageCardsModule } from "./messages/message.cards.module";
-import { PlatformRuntimeDetectorService } from "./platform.runtime.detector.service";
 import { CommonModule } from "@angular/common";
-import { LayoutComponent } from "../home/layout.component";
 
 @NgModule({
     imports: [

@@ -1,34 +1,32 @@
-<auth-base>
-    <h4 class="text-center">Login</h4>
-
-    <form [formGroup]="authForm" class="form mt-4" (submit)="login()">
-
-        <div class="form-group">
-            <input #nameInput
-                formControlName="name"
-                class="form-control" 
-                placeholder="user name" 
-                autofocus>
-            <vetweb-error *ngIf="authForm.get('name').errors?.required" errorMessage="User name is required!"></vetweb-error>
+<div class="card-header">Login</div>
+<div class="card-body">
+    <form [formGroup]="authForm" (submit)="login()">
+    <div class="form-group">
+        <div class="form-label-group">
+        <input formControlName="name" type="text" id="inputEmail" class="form-control" placeholder="Email address" required="required" autofocus="autofocus">
+        <label for="inputEmail">Email address</label>
         </div>
-
-        <div class="form-group">
-            <input
-                formControlName="password"
-                type="password" 
-                class="form-control" 
-                placeholder="password">  
-            <vetweb-error *ngIf="authForm.get('password').errors?.required" errorMessage="Password is required!"></vetweb-error>
+        <vetweb-error *ngIf="authForm.get('name').errors?.required" errorMessage="User name is required!"></vetweb-error>
+    </div>
+    <div class="form-group">
+        <div class="form-label-group">
+        <input formControlName="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required="required" #nameInput>
+        <label for="inputPassword">Password</label>
         </div>
-
-        <button 
-            [disabled]="authForm.invalid"
-            type="submit" 
-            class="btn btn-primary btn-block">
-            Login
-        </button>
-
+        <vetweb-error *ngIf="authForm.get('password').errors?.required" errorMessage="Password is required!"></vetweb-error>
+    </div>
+    <div class="form-group">
+        <div class="checkbox">
+        <label>
+            <input type="checkbox" value="remember-me">
+            Remember Password
+        </label>
+        </div>
+    </div>
+    <a class="btn btn-primary btn-block" href="index.html">Login</a>
     </form>
-
-    <p>Not a user?<a>Register now</a></p>
-</auth-base>
+    <div class="text-center">
+    <a class="d-block small mt-3" href="register.html">Register an Account</a>
+    <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
+    </div>
+</div>

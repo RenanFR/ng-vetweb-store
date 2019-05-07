@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthenticationService } from './authentication.service';
 import { Router } from '@angular/router';
@@ -11,6 +11,7 @@ import { TokenService } from 'src/app/shared/token.service';
 })
 export class LoginComponent implements OnInit {
 
+  bodyClass: boolean = true;
   authForm: FormGroup;
   @ViewChild('nameInput') nameInput: ElementRef<HTMLInputElement>;
 
