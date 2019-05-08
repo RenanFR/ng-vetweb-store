@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { AuthenticationBaseComponent } from '../auth.base.component';
 import { RouterModule } from '@angular/router';
+import { EnableToLogin } from './enable.to.login';
 
 
 @NgModule({
@@ -21,6 +22,9 @@ import { RouterModule } from '@angular/router';
   exports: [
     LoginComponent,
     AuthenticationBaseComponent
+  ],
+  providers: [
+    EnableToLogin
   ]
 })
 export class LoginModule { }

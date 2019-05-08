@@ -7,17 +7,21 @@ import { ProductsComponent } from './products/products.component';
 import { CategoryFormComponent } from './category/category.form.component';
 import { CategoriesComponent } from './category/categories.component';
 import { AuthenticationBaseComponent } from './home/auth.base.component';
+import { EnableToLogin } from './home/login/enable.to.login';
 
 const routes: Routes = [
   {
     path: 'login',
     component: AuthenticationBaseComponent,
+    canActivate: [
+      EnableToLogin
+    ],
     children: [
       {
         path: '', 
         component: LoginComponent
       }
-  ]    
+  ]
   },
   {
     path: 'product/form',

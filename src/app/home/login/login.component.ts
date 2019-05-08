@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
       .login(user.name, user.password)
       .subscribe(
         () => {
+            document.body.classList.remove('bg-dark');
             this.router.navigate(['products']);
         },
         error => {
