@@ -7,6 +7,8 @@
         <label for="inputEmail">Email address</label>
         </div>
         <vetweb-error *ngIf="authForm.get('name').errors?.required" errorMessage="User name is required!"></vetweb-error>
+        <vetweb-error *ngIf="authForm.get('name').errors?.unavailableUserName" errorMessage="Username not available!"></vetweb-error>
+        <small *ngIf="authForm.get('name').valid" class="text-success">Username available</small>
     </div>
     <div class="form-group">
         <div class="form-label-group">
@@ -24,7 +26,7 @@
         </div>
     </div>
     <button
-        [disabled]="authForm.invalid"
+        [disabled]="authForm.invalid || authForm.pending"
         type="submit" 
         class="btn btn-primary btn-block">
         Login

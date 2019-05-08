@@ -6,6 +6,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { AuthenticationBaseComponent } from '../auth.base.component';
 import { RouterModule } from '@angular/router';
 import { EnableToLogin } from './enable.to.login';
+import { UserExistsValidator } from './user.exists.validator';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { EnableToLogin } from './enable.to.login';
     AuthenticationBaseComponent
   ],
   providers: [
-    EnableToLogin
+    EnableToLogin,
+    UserExistsValidator
   ]
 })
 export class LoginModule { }
