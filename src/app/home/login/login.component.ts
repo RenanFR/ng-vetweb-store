@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    document.body.classList.add('bg-dark');
     this.authForm = this.authFormBuilder.group({
         name:['', Validators.required],
         password:['', Validators.required]
