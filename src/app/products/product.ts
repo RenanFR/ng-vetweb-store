@@ -9,10 +9,11 @@ export class Product {
     category:Category;
     priceRange: PriceRange;
 
-    constructor(description: string, price: number, category:Category) {
+    constructor(description: string, price: number, category:Category, priceRange: PriceRange) {
         this.description = description;
         this.price = price;
         this.category = category;
+        this.priceRange = priceRange;
     }
 
 }

@@ -47,5 +47,9 @@ export class ProductsService {
     return this.httpClient.get(`${UsefulConstants.PRODUCTS_API}/total`, {headers: this.headers});
   }
 
+  drilldown(): Observable<any> {
+    return this.httpClient.get(`${UsefulConstants.PRODUCTS_API}/drilldown`, {headers: this.headers});
+  }
+
 
 }

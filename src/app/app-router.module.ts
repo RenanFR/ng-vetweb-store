@@ -8,6 +8,7 @@ import { CategoryFormComponent } from './category/category.form.component';
 import { CategoriesComponent } from './category/categories.component';
 import { AuthenticationBaseComponent } from './home/auth.base.component';
 import { EnableToLogin } from './home/login/enable.to.login';
+import { DrilldownProductComponent } from './products/drilldown.product.component';
 
 const routes: Routes = [
   {
@@ -39,6 +40,10 @@ const routes: Routes = [
     path: 'categories',
     component: CategoriesComponent
   },
+  {
+    path: 'product/drilldown',
+    component: DrilldownProductComponent
+  },  
   {
     path: '',
     pathMatch: 'full',

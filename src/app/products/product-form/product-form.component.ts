@@ -42,7 +42,9 @@ export class ProductFormComponent implements OnInit {
     const description = this.productForm.get('description').value;
     const price = this.productForm.get('price').value;
     const category = this.productForm.get('category').value;
-    this.product = new Product(description, price, category);
+    const priceRange = this.productForm.get('priceRange').value;
+    console.log(priceRange);
+    this.product = new Product(description, price, category, priceRange);
     console.log(this.product);
     this.service.saveProduct(this.product)
       .subscribe(data => {

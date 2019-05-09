@@ -8,6 +8,7 @@ import { ProductFormComponent } from './product-form/product-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeModule } from '../home/home.module';
 import { SharedModule } from '../shared/shared.module';
+import { DrilldownProductComponent } from './drilldown.product.component';
 
 @NgModule({
   imports: [
@@ -20,7 +21,8 @@ import { SharedModule } from '../shared/shared.module';
   ],
   declarations: [
     ProductsComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    DrilldownProductComponent
   ]
 })
 export class ProductsModule { }
