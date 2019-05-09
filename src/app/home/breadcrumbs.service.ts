@@ -6,6 +6,6 @@ export class BreadcrumbsService {
 
     breadcrumbs: string[] = ['a', 'b', 'c'];
 
-    private breadcrumbSubject = new BehaviorSubject<string[]>(this.breadcrumbs);
+    public breadcrumbSubject = new BehaviorSubject<string[]>(this.breadcrumbs);
 
 }
