@@ -9,7 +9,6 @@ import { CategoryModule } from './category/category.module';
 import { HomeModule } from './home/home.module';
 import { LayoutComponent } from './home/layout.component';
 import { APP_BASE_HREF } from '@angular/common';
-import { Session } from './session';
 
 @NgModule({
   declarations: [
@@ -24,8 +23,7 @@ import { Session } from './session';
     AppRouterModule
   ],
   providers: [
-    { provide: APP_BASE_HREF, useValue: '/' },
-    { provide: 'session', useValue: new Session() }
+    { provide: APP_BASE_HREF, useValue: '/' }
   ],
   bootstrap: [AppComponent]
 })
