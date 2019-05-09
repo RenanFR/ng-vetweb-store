@@ -7,6 +7,7 @@ import { ProductsComponent } from './products.component';
 import { ProductFormComponent } from './product-form/product-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeModule } from '../home/home.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -14,6 +15,7 @@ import { HomeModule } from '../home/home.module';
     HttpClientModule,
     HotTableModule.forRoot(),
     ReactiveFormsModule,
+    SharedModule,
     HomeModule
   ],
   declarations: [

@@ -9,7 +9,7 @@ import { BreadcrumbsService } from '../home/breadcrumbs.service';
 })
 export class ProductsComponent implements OnInit {
 
-  breadcrumbs: string[] = ['d', 'e', 'f'];
+  breadcrumbs: Map<string, string> = new Map([ ['/products', 'List of Products'], ['/product/form', 'New Product'] ]);
 
   constructor(
     private service: ProductsService,

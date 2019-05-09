@@ -8,10 +8,14 @@ import { NavbarComponent } from "./navbar.component";
 import { FooterComponent } from "./footer.component";
 import { ScrollComponent } from "./scroll.component";
 import { BreadcrumbsService } from "./breadcrumbs.service";
+import { RouterModule } from "@angular/router";
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
     imports: [
-        CommonModule
+        CommonModule,
+        SharedModule,
+        RouterModule
     ],
     declarations: [
         BreadcrumbComponent,

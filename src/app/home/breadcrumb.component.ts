@@ -11,7 +11,7 @@ export class BreadcrumbComponent implements OnInit{
         private breadcrumbsService: BreadcrumbsService
     ){}
 
-    breadcrumbs: string[] = [];
+    breadcrumbs: Map<string, string>;
 
     ngOnInit(): void {
         this.breadcrumbsService

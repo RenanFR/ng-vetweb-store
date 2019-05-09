@@ -32,6 +32,16 @@
         </select>        
       </div>
     </div>
+
+    <!-- Price Range input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="priceRange">Price Range</label>  
+      <div class="col-md-4">
+        <select formControlName="priceRange">
+          <option [ngValue]="priceRange" *ngFor="let pr of priceRanges | enumVals">{{pr}}</option>
+        </select>        
+      </div>
+    </div>    
     
     </fieldset>
     <button [disabled]="productForm.invalid" type="submit" class="btn btn-primary btn-block">Submit</button>

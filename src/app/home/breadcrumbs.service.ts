@@ -4,8 +4,8 @@ import { BehaviorSubject } from "rxjs";
 @Injectable()
 export class BreadcrumbsService {
 
-    breadcrumbs: string[] = ['a', 'b', 'c'];
+    breadcrumbs: Map<string, string> = new Map([ ['default', 'breadcrumb'] ]);
 
-    public breadcrumbSubject = new BehaviorSubject<string[]>(this.breadcrumbs);
+    public breadcrumbSubject = new BehaviorSubject<Map<string, string>>(this.breadcrumbs);
 
 }

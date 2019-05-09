@@ -5,7 +5,7 @@ import { Product } from '../product';
 import { CategoryService } from 'src/app/category/category.service';
 import { Category } from 'src/app/category/category';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
+import { PriceRange } from '../price.range';
 
 @Component({
   selector: 'app-product-form',
@@ -16,6 +16,7 @@ export class ProductFormComponent implements OnInit {
   productForm: FormGroup;
   product: Product;
   categories: Category[] = [];
+  priceRanges = PriceRange;
 
   constructor(
       private formBuilder: FormBuilder,
@@ -32,7 +33,8 @@ export class ProductFormComponent implements OnInit {
       this.productForm = this.formBuilder.group({
           description:[''],
           category:[this.categories[1]],
-          price:10
+          price:0,
+          priceRange:[]
       });
   }
 
