@@ -7,6 +7,7 @@ import { SidebarComponent } from "./sidebar.component";
 import { NavbarComponent } from "./navbar.component";
 import { FooterComponent } from "./footer.component";
 import { ScrollComponent } from "./scroll.component";
+import { BreadcrumbsService } from "./breadcrumbs.service";
 
 @NgModule({
     imports: [
@@ -23,6 +24,9 @@ import { ScrollComponent } from "./scroll.component";
     ],
     exports: [
         LayoutComponent
+    ],
+    providers: [
+        BreadcrumbsService
     ]
 })
 export class HomeModule {
