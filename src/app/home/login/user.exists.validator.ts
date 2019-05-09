@@ -17,7 +17,7 @@ export class UserExistsValidator {
                 .valueChanges
                 .pipe(debounceTime(300))
                 .pipe(switchMap(userInput => this.authService.checkNameIsTaken(userInput)))
-                .pipe(map(response => response? {unavailableUserName: true} : null))
+                .pipe(map(response => !response? {unavailableUserName: true} : null))
                 .pipe(first());
         };
     }

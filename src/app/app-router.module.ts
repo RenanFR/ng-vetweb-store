@@ -30,15 +30,20 @@ const routes: Routes = [
   {
     path: 'products',
     component: ProductsComponent
-  },  
+  },
   {
     path: 'category/form',
     component: CategoryFormComponent
-  },    
+  },
   {
     path: 'categories',
     component: CategoriesComponent
-  }      
+  },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'login'
+  }
 ]
 @NgModule({
   imports: [
