@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { BreadcrumbsService } from "./breadcrumbs.service";
+import { Breadcrumb } from "./breadcrumb";
 
 @Component({
     selector: 'vetweb-breadcrumb',
@@ -11,7 +12,7 @@ export class BreadcrumbComponent implements OnInit{
         private breadcrumbsService: BreadcrumbsService
     ){}
 
-    breadcrumbs: Map<string, string>;
+    breadcrumbs: Map<string, Breadcrumb>;
 
     ngOnInit(): void {
         this.breadcrumbsService

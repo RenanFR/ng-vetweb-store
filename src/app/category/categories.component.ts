@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CategoryService } from './category.service';
 import { ProductsService } from '../products/products.service';
 import { BreadcrumbsService } from '../home/breadcrumbs.service';
+import { Breadcrumb } from '../home/breadcrumb';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { BreadcrumbsService } from '../home/breadcrumbs.service';
 })
 export class CategoriesComponent implements OnInit {
 
-  breadcrumbs: Map<string, string> = new Map([ ['/categories', 'List of categories'], ['/category/form', 'New category'] ]);
+  breadcrumbs: Map<string, Breadcrumb> = new Map([ ['/categories', {link: 'List of categories', isActive: true}], ['/category/form', {link: 'New category', isActive: false}] ]);
 
   constructor(
     private service: CategoryService,

@@ -6,6 +6,8 @@ import { CategoryService } from 'src/app/category/category.service';
 import { Category } from 'src/app/category/category';
 import { Router } from '@angular/router';
 import { PriceRange } from '../price.range';
+import { Breadcrumb } from 'src/app/home/breadcrumb';
+import { BreadcrumbsService } from 'src/app/home/breadcrumbs.service';
 
 @Component({
   selector: 'app-product-form',
@@ -13,6 +15,7 @@ import { PriceRange } from '../price.range';
 })
 export class ProductFormComponent implements OnInit {
 
+  breadcrumbs: Map<string, Breadcrumb> = new Map([ ['/products', {link: 'List of Products', isActive: false}], ['/product/form', {link: 'New Product', isActive: true}] ]);
   productForm: FormGroup;
   product: Product;
   categories: Category[] = [];
@@ -22,10 +25,12 @@ export class ProductFormComponent implements OnInit {
       private formBuilder: FormBuilder,
       private categoryService: CategoryService,
       private router: Router,
-      private service: ProductsService
+      private service: ProductsService,
+      private breadcrumbsService:BreadcrumbsService 
   ) { }
 
   ngOnInit() {
+      this.breadcrumbsService.breadcrumbSubject.next(this.breadcrumbs);
       this.categoryService.getCategories()
         .subscribe(cat => {
           this.categories = cat;
