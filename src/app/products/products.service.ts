@@ -21,34 +21,32 @@ export class ProductsService {
 
   }
 
-  headers: HttpHeaders = new HttpHeaders({'Authorization': this.tokenService.getToken()});;
-
   saveProduct(product: Product): Observable<any> {
-    return this.httpClient.post(UsefulConstants.PRODUCTS_API, product, { responseType: 'text', headers: this.headers });
+    return this.httpClient.post(UsefulConstants.PRODUCTS_API, product, { responseType: 'text' });
   }
 
   getProducts(): Observable<Product[]> {
-    return this.httpClient.get<Product[]>(UsefulConstants.PRODUCTS_API, {headers: this.headers});
+    return this.httpClient.get<Product[]>(UsefulConstants.PRODUCTS_API);
   }
 
   delete(id: number):Observable<string> {
-    return this.httpClient.delete<string>(`${UsefulConstants.PRODUCTS_API}/${id}`, {headers: this.headers});
+    return this.httpClient.delete<string>(`${UsefulConstants.PRODUCTS_API}/${id}`);
   }
 
   edit(product: Product): Observable<string> {
-    return this.httpClient.put<string>(UsefulConstants.PRODUCTS_API, product, {headers: this.headers});
+    return this.httpClient.put<string>(UsefulConstants.PRODUCTS_API, product);
   }
 
   findById(id: number):Observable<Product> {
-    return this.httpClient.get<Product>(`${UsefulConstants.PRODUCTS_API}/${id}`, {headers: this.headers});
+    return this.httpClient.get<Product>(`${UsefulConstants.PRODUCTS_API}/${id}`);
   }
 
   getTotal():Observable<any> {
-    return this.httpClient.get(`${UsefulConstants.PRODUCTS_API}/total`, {headers: this.headers});
+    return this.httpClient.get(`${UsefulConstants.PRODUCTS_API}/total`);
   }
 
   drilldown(): Observable<any> {
-    return this.httpClient.get(`${UsefulConstants.PRODUCTS_API}/drilldown`, {headers: this.headers});
+    return this.httpClient.get(`${UsefulConstants.PRODUCTS_API}/drilldown`);
   }
 
 
