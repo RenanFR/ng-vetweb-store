@@ -20,6 +20,7 @@ export class ProductFormComponent implements OnInit {
   product: Product;
   categories: Category[] = [];
   priceRanges = PriceRange;
+  fileImage: File;
 
   constructor(
       private formBuilder: FormBuilder,
@@ -39,7 +40,8 @@ export class ProductFormComponent implements OnInit {
           description:[''],
           category:[this.categories[1]],
           price:0,
-          priceRange:[]
+          priceRange:[],
+          fileImage: []
       });
   }
 
@@ -48,10 +50,8 @@ export class ProductFormComponent implements OnInit {
     const price = this.productForm.get('price').value;
     const category = this.productForm.get('category').value;
     const priceRange = this.productForm.get('priceRange').value;
-    console.log(priceRange);
     this.product = new Product(description, price, category, priceRange);
-    console.log(this.product);
-    this.service.saveProduct(this.product)
+    this.service.saveProduct(this.product, this.fileImage)
       .subscribe(data => {
           console.log(data);
           this.service.newProductSubject.next(true);

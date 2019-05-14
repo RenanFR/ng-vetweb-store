@@ -4,7 +4,16 @@
     
     <!-- Form Name -->
     <legend>Product</legend>
-    
+
+    <!-- Image input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="fileImage">Image</label>
+      <div class="col-md-4">
+      <input formControlName="fileImage" id="fileImage" name="fileImage" type="file" class="form-control input-md" (change)="fileImage = $event.target.files[0]">
+        
+      </div>
+    </div>    
+
     <!-- Description input-->
     <div class="form-group">
       <label class="col-md-4 control-label" for="description">Description</label>  

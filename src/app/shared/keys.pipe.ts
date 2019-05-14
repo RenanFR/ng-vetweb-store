@@ -8,7 +8,6 @@ export class KeysPipe implements PipeTransform{
         myMap.forEach((val: string, key: string) => {
             keys.push({key: key, value: val});
         });
-        console.log(keys);
         return keys;
     }
 

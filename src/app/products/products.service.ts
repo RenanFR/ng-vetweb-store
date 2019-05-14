@@ -21,8 +21,15 @@ export class ProductsService {
 
   }
 
-  saveProduct(product: Product): Observable<any> {
-    return this.httpClient.post(UsefulConstants.PRODUCTS_API, product, { responseType: 'text' });
+  saveProduct(product: Product, fileImage: File): Observable<any> {
+    console.log(product);
+    console.log(JSON.stringify(product));
+    console.log(fileImage);
+    const formData: FormData = new FormData();
+    formData.append('product', JSON.stringify(product));
+    formData.append('fileImage', fileImage);
+    console.log(formData);
+    return this.httpClient.post(UsefulConstants.PRODUCTS_API, formData, { headers: new HttpHeaders({ 'Content-Type': 'multipart/form-data' }) });
   }
 
   getProducts(): Observable<Product[]> {
