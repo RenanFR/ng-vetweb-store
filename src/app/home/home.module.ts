@@ -1,16 +1,36 @@
 import { NgModule } from "@angular/core";
-import { HeaderComponent } from "./header.component";
 import { CommonModule } from "@angular/common";
+import { LayoutComponent } from "./layout.component";
+import { BreadcrumbComponent } from "./breadcrumb.component";
+import { LogoutModalComponent } from "./logout.modal.component";
+import { SidebarComponent } from "./sidebar.component";
+import { NavbarComponent } from "./navbar.component";
+import { FooterComponent } from "./footer.component";
+import { ScrollComponent } from "./scroll.component";
+import { BreadcrumbsService } from "./breadcrumbs.service";
+import { RouterModule } from "@angular/router";
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
     imports: [
-        CommonModule
+        CommonModule,
+        SharedModule,
+        RouterModule
     ],
     declarations: [
-        HeaderComponent
+        BreadcrumbComponent,
+        LogoutModalComponent,
+        SidebarComponent,
+        NavbarComponent,
+        FooterComponent,
+        ScrollComponent,
+        LayoutComponent
     ],
     exports: [
-        HeaderComponent
+        LayoutComponent
+    ],
+    providers: [
+        BreadcrumbsService
     ]
 })
 export class HomeModule {

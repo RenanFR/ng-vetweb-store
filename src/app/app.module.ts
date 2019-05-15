@@ -7,10 +7,12 @@ import { LoginModule } from './home/login/login.module';
 import { AppRouterModule } from './app-router.module';
 import { CategoryModule } from './category/category.module';
 import { HomeModule } from './home/home.module';
+import { LayoutComponent } from './home/layout.component';
+import { APP_BASE_HREF } from '@angular/common';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +22,9 @@ import { HomeModule } from './home/home.module';
     HomeModule,
     AppRouterModule
   ],
-  providers: [],
+  providers: [
+    { provide: APP_BASE_HREF, useValue: '/' }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

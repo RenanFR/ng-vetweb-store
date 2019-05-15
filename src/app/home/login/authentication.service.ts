@@ -4,7 +4,6 @@ import { Observable, BehaviorSubject } from "rxjs";
 import { UsefulConstants } from "src/app/shared/useful.constants";
 import { tap, map } from 'rxjs/operators';
 import { TokenService } from "src/app/shared/token.service";
-import { UserInfo } from "./user.info";
 
 @Injectable({
     providedIn: "root"
@@ -17,12 +16,19 @@ export class AuthenticationService {
     ) {}
 
     public login(name: string, password: string): Observable<any> {
-        return this.http
+        return this
+            .http
             .post(UsefulConstants.LOGIN_API, { name, password }, { observe: 'response' })
             .pipe(tap(response => {
                 let token: string = response.body.token;
                 this.tokenService.storeToken(token);
             }));
+    }
+
+    public checkNameIsTaken(name: string): Observable<boolean> {
+        return this
+            .http
+            .get<boolean>(UsefulConstants.LOGIN_API + '/exists/' + name);
     }
 
 }

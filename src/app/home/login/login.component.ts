@@ -1,16 +1,18 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Output } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthenticationService } from './authentication.service';
 import { Router } from '@angular/router';
 import { UserInfo } from './user.info';
 import { PlatformRuntimeDetectorService } from 'src/app/shared/platform.runtime.detector.service';
 import { TokenService } from 'src/app/shared/token.service';
+import { UserExistsValidator } from './user.exists.validator';
 
 @Component({
   templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
 
+  bodyClass: boolean = true;
   authForm: FormGroup;
   @ViewChild('nameInput') nameInput: ElementRef<HTMLInputElement>;
 
@@ -18,7 +20,7 @@ export class LoginComponent implements OnInit {
     private authFormBuilder: FormBuilder,
     private authService: AuthenticationService,
     private platformDetector: PlatformRuntimeDetectorService,
-    private tokenService: TokenService,
+    private userExistsValidator: UserExistsValidator,
     private router: Router
   ) { }
 
@@ -28,6 +30,7 @@ export class LoginComponent implements OnInit {
       .login(user.name, user.password)
       .subscribe(
         () => {
+            document.body.classList.remove('bg-dark');
             this.router.navigate(['products']);
         },
         error => {
@@ -40,8 +43,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    document.body.classList.add('bg-dark');
     this.authForm = this.authFormBuilder.group({
-        name:['', Validators.required],
+        name:['', [Validators.required], [this.userExistsValidator.checkNameIsTaken()]],
         password:['', Validators.required]
     });
   }

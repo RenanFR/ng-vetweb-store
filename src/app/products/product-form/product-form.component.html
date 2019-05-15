@@ -1,39 +1,65 @@
-<form [formGroup]="productForm" class="form-horizontal" (submit)="onSubmit()">
-  <fieldset>
-  
-  <!-- Form Name -->
-  <legend>Product</legend>
-  
-  <!-- Description input-->
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="description">Description</label>  
-    <div class="col-md-4">
-    <input formControlName="description" id="description" name="description" type="text" placeholder="" class="form-control input-md">
-      
-    </div>
-  </div>
-  
-  <!-- Price input-->
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="price">Price</label>  
-    <div class="col-md-4">
-    <input formControlName="price" id="price" name="price" type="number" placeholder="" class="form-control input-md">
-      
-    </div>
-  </div>
+<vetweb-layout>
+  <form [formGroup]="productForm" class="form-horizontal" (submit)="onSubmit()">
+    <fieldset>
+    
+    <!-- Form Name -->
+    <legend>Product</legend>
 
-  <!-- Category input-->
-  <div class="form-group">
-    <label class="col-md-4 control-label" for="price">Category</label>  
-    <div class="col-md-4">
-      <select formControlName="category">
-        <option [ngValue]="category" *ngFor="let category of categories">{{category.description}}</option>
-      </select>        
+    <!-- Image input-->
+    <div class="form-group" *ngIf="!filePreview; else templatePreview">
+      <button type="button" (click)="fileImageInput.click()" class="btn btn-primary">
+          <i class="fa fa-image fa-4x align-middle"></i>
+      </button>
+      <label class="col-md-4 control-label" for="fileImage">Image</label>
+      <div class="col-md-4">
+        <input formControlName="fileImage" hidden id="fileImage" name="fileImage" type="file" class="form-control input-md" (change)="handleFile($event.target.files[0])" #fileImageInput>
+      </div>
     </div>
-  </div>
-  
-  </fieldset>
-  <button [disabled]="productForm.invalid" type="submit" class="btn btn-primary btn-block">Submit</button>
+
+    <ng-template #templatePreview>
+        <div class="text-center">
+            <img class="img-thumbnail" [src]="filePreview" alt="Preview">          
+        </div>
+    </ng-template>    
+
+    <!-- Description input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="description">Description</label>  
+      <div class="col-md-4">
+          <input formControlName="description" id="description" name="description" type="text" placeholder="" class="form-control input-md">
+      </div>
+    </div>
+    
+    <!-- Price input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="price">Price</label>  
+      <div class="col-md-4">
+          <input formControlName="price" id="price" name="price" type="number" placeholder="" class="form-control input-md">
+      </div>
+    </div>
+
+    <!-- Category input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="price">Category</label>  
+      <div class="col-md-4">
+        <select formControlName="category">
+          <option [ngValue]="category" *ngFor="let category of categories">{{category.description}}</option>
+        </select>        
+      </div>
+    </div>
+
+    <!-- Price Range input-->
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="priceRange">Price Range</label>  
+      <div class="col-md-4">
+        <select formControlName="priceRange">
+          <option [ngValue]="pr" *ngFor="let pr of priceRanges | enumVals">{{pr}}</option>
+        </select>
+      </div>
+    </div>
+    
+    </fieldset>
+    <button [disabled]="productForm.invalid" type="submit" class="btn btn-primary btn-block">Submit</button>
 
   </form>
-  
+</vetweb-layout>  

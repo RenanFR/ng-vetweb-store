@@ -6,17 +6,23 @@ import { HotTableModule } from '@handsontable/angular';
 import { ProductsComponent } from './products.component';
 import { ProductFormComponent } from './product-form/product-form.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeModule } from '../home/home.module';
+import { SharedModule } from '../shared/shared.module';
+import { DrilldownProductComponent } from './drilldown.product.component';
 
 @NgModule({
   imports: [
     CommonModule,
     HttpClientModule,
     HotTableModule.forRoot(),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule,
+    HomeModule
   ],
   declarations: [
     ProductsComponent,
-    ProductFormComponent
+    ProductFormComponent,
+    DrilldownProductComponent
   ]
 })
 export class ProductsModule { }

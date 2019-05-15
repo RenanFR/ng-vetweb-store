@@ -6,8 +6,24 @@ import { ProductFormComponent } from './products/product-form/product-form.compo
 import { ProductsComponent } from './products/products.component';
 import { CategoryFormComponent } from './category/category.form.component';
 import { CategoriesComponent } from './category/categories.component';
+import { AuthenticationBaseComponent } from './home/auth.base.component';
+import { EnableToLogin } from './home/login/enable.to.login';
+import { DrilldownProductComponent } from './products/drilldown.product.component';
 
 const routes: Routes = [
+  {
+    path: 'login',
+    component: AuthenticationBaseComponent,
+    canActivate: [
+      EnableToLogin
+    ],
+    children: [
+      {
+        path: '', 
+        component: LoginComponent
+      }
+    ]
+  },
   {
     path: 'product/form',
     component: ProductFormComponent
@@ -15,18 +31,23 @@ const routes: Routes = [
   {
     path: 'products',
     component: ProductsComponent
-  },  
+  },
   {
     path: 'category/form',
     component: CategoryFormComponent
-  },    
+  },
   {
     path: 'categories',
     component: CategoriesComponent
-  },      
+  },
+  {
+    path: 'product/drilldown',
+    component: DrilldownProductComponent
+  },  
   {
     path: '',
-    component: LoginComponent
+    pathMatch: 'full',
+    redirectTo: 'login'
   }
 ]
 @NgModule({

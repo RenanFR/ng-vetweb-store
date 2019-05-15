@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CategoryService } from './category.service';
 import { ProductsService } from '../products/products.service';
+import { BreadcrumbsService } from '../home/breadcrumbs.service';
+import { Breadcrumb } from '../home/breadcrumb';
 
 
 @Component({
@@ -9,23 +11,29 @@ import { ProductsService } from '../products/products.service';
 })
 export class CategoriesComponent implements OnInit {
 
+  breadcrumbs: Map<string, Breadcrumb> = new Map([ ['/categories', {link: 'List of categories', isActive: true}], ['/category/form', {link: 'New category', isActive: false}] ]);
+
   constructor(
     private service: CategoryService,
-    private productsService: ProductsService    
+    private productsService: ProductsService,
+    private breadcrumbsService: BreadcrumbsService
   ) { }
 
   categories: any[] = [];
   amountProducts:number;
-  @ViewChild('amtProds')amountProds:ElementRef<HTMLSpanElement>;
 
   ngOnInit() {
-    this.productsService.getTotal().subscribe(amountProducts => {this.amountProducts = amountProducts;});
-     this.service.getCategories()
-      .subscribe((cat) => {
-          this.categories = cat;
-          this.categories = this.categories.map(c => Object.assign({}, c, { 'percentageOfTotal': ((c.amountProducts/parseInt(this.amountProds.nativeElement.textContent.match(/\d/g).toString())) * 100).toString() + '%' }));
-          console.log(this.categories);
-      });
+    this.breadcrumbsService.breadcrumbSubject.next(this.breadcrumbs);
+    this.productsService
+      .getTotal()
+      .subscribe(amountProducts => {
+        this.amountProducts = amountProducts;
+        this.service.getCategories()
+        .subscribe((cat) => {
+            this.categories = cat;
+            console.log(this.categories);
+        });
+    });
   }
 
 }

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from './products.service';
+import { BreadcrumbsService } from '../home/breadcrumbs.service';
+import { Breadcrumb } from '../home/breadcrumb';
 
 
 @Component({
@@ -8,7 +10,12 @@ import { ProductsService } from './products.service';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private service: ProductsService) {
+  breadcrumbs: Map<string, Breadcrumb> = new Map([ ['/products', {link: 'List of Products', isActive: true}], ['/product/form', {link: 'New Product', isActive: false}] ]);
+
+  constructor(
+    private service: ProductsService,
+    private breadcrumbsService: BreadcrumbsService
+    ) {
 
     service.newProductSubject$.subscribe(b => {
       this.init();
@@ -23,10 +30,11 @@ export class ProductsComponent implements OnInit {
   }
 
   init() {
+    this.breadcrumbsService.breadcrumbSubject.next(this.breadcrumbs);
     this.service.getProducts()
-    .subscribe((prod) => {
-      this.products = prod;
-    });
+      .subscribe((prod) => {
+        this.products = prod;
+      });
   }  
 
 }
