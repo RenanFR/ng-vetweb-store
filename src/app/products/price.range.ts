@@ -6,6 +6,8 @@ export enum PriceRange {
 
     FIVEHUNDREDSTOTHOUSAND = "1000",
 
-    THOUSANDANDABOVE = "10000"
+    THOUSANDANDABOVE = "10000",
+
+    UNKNOWN = ""
     
 }

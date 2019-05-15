@@ -22,7 +22,13 @@
                 <td>{{prod.description}}</td>
                 <td>{{prod.price}}</td>
                 <td>{{prod.category.description}}</td>
-                <td>{{prod.priceRange}}</td>
+                <td [ngSwitch]="prod.priceRange">
+                    <span *ngSwitchCase = "'ZEROTOHUNDRED'">Zero to hundred</span>
+                    <span *ngSwitchCase = "'HUNDREDTOFIVEHUNDREDS'">Hundred to five hundreds</span>
+                    <span *ngSwitchCase = "'FIVEHUNDREDSTOTHOUSAND'">Five hundreds to thousand</span>
+                    <span *ngSwitchCase = "'THOUSANDANDABOVE'">Thousand and above</span>
+                    <span *ngSwitchCase = "'UNKNOWN'">Unknown</span>
+                </td>
               </tr>
             </tbody>
           </table>

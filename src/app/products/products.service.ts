@@ -29,7 +29,7 @@ export class ProductsService {
     formData.append('product', JSON.stringify(product));
     formData.append('fileImage', fileImage);
     console.log(formData);
-    return this.httpClient.post(UsefulConstants.PRODUCTS_API, formData, { headers: new HttpHeaders({ 'Content-Type': 'multipart/form-data' }) });
+    return this.httpClient.post(UsefulConstants.PRODUCTS_API, formData);
   }
 
   getProducts(): Observable<Product[]> {

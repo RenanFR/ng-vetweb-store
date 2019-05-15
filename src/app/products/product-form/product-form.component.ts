@@ -53,7 +53,6 @@ export class ProductFormComponent implements OnInit {
     this.product = new Product(description, price, category, priceRange);
     this.service.saveProduct(this.product, this.fileImage)
       .subscribe(data => {
-          console.log(data);
           this.service.newProductSubject.next(true);
     });
     this.router.navigateByUrl('products');
