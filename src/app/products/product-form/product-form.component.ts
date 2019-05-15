@@ -21,6 +21,7 @@ export class ProductFormComponent implements OnInit {
   categories: Category[] = [];
   priceRanges = PriceRange;
   fileImage: File;
+  filePreview: string;
 
   constructor(
       private formBuilder: FormBuilder,
@@ -41,7 +42,7 @@ export class ProductFormComponent implements OnInit {
           category:[this.categories[1]],
           price:0,
           priceRange:[],
-          fileImage: []
+          fileImage: ['']
       });
   }
 
@@ -56,6 +57,15 @@ export class ProductFormComponent implements OnInit {
           this.service.newProductSubject.next(true);
     });
     this.router.navigateByUrl('products');
+  }
+
+  handleFile(file: File) {
+    this.fileImage = file;
+    let reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = (event: any) => {
+      this.filePreview = event.target.result;
+    };
   }
 
 }
