@@ -18,7 +18,6 @@ export class ProductsService {
     private httpClient: HttpClient,
     private tokenService: TokenService
   ) {
-
   }
 
   saveProduct(product: Product, fileImage: File): Observable<any> {
