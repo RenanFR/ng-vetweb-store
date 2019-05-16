@@ -42,6 +42,10 @@ export class LoginComponent implements OnInit {
       );
   }
 
+  public doGoogleLogin(): void {
+    this.authService.doGoogleLogin();
+  }
+
   ngOnInit() {
     document.body.classList.add('bg-dark');
     this.authForm = this.authFormBuilder.group({

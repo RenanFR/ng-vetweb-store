@@ -7,6 +7,8 @@ import { AuthenticationBaseComponent } from '../auth.base.component';
 import { RouterModule } from '@angular/router';
 import { EnableToLogin } from './enable.to.login';
 import { UserExistsValidator } from './user.exists.validator';
+import { SocialLoginModule, AuthServiceConfig } from 'angular5-social-login';
+import { getGoogleClientCredentials } from './google.configuration';
 
 
 @NgModule({
@@ -14,7 +16,8 @@ import { UserExistsValidator } from './user.exists.validator';
     CommonModule,
     ReactiveFormsModule,
     SharedModule,
-    RouterModule
+    RouterModule,
+    SocialLoginModule
   ],
   declarations: [
     LoginComponent,
@@ -26,7 +29,11 @@ import { UserExistsValidator } from './user.exists.validator';
   ],
   providers: [
     EnableToLogin,
-    UserExistsValidator
+    UserExistsValidator,
+    {
+      provide: AuthServiceConfig,
+      useFactory: getGoogleClientCredentials
+    }
   ]
 })
 export class LoginModule { }
