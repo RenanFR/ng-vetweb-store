@@ -5,6 +5,7 @@ import { UsefulConstants } from "src/app/shared/useful.constants";
 import { tap, map } from 'rxjs/operators';
 import { TokenService } from "src/app/shared/token.service";
 import { GoogleLoginProvider, AuthService } from "angular5-social-login";
+import { Router } from "@angular/router";
 
 @Injectable({
     providedIn: "root"
@@ -14,7 +15,8 @@ export class AuthenticationService {
     constructor(
         private http: HttpClient,
         private tokenService: TokenService,
-        private socialAuth: AuthService
+        private socialAuth: AuthService,
+        private router: Router
     ) {}
 
     public login(name: string, password: string): Observable<any> {
@@ -37,13 +39,12 @@ export class AuthenticationService {
         let socialMedia = GoogleLoginProvider.PROVIDER_ID;
         this.socialAuth.signIn(socialMedia)
             .then((user) => {
-                console.log('GoogleLoginProvider');
-                console.log(user.idToken);
-                this.http.post(UsefulConstants.LOGIN_API + '/google', user.idToken)
+                this.http.post<any>(UsefulConstants.LOGIN_API + '/google', user.idToken)
                     .subscribe((gmailUser) => {
-                        console.log('handleGoogleToken');
-                        console.log(gmailUser);
-                    })
+                        let token = gmailUser.token;
+                        this.tokenService.storeToken(token);
+                        this.router.navigate(['products']);
+                    });
             });
     }
 
