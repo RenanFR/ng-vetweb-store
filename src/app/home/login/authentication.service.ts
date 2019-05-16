@@ -40,9 +40,9 @@ export class AuthenticationService {
                 console.log('GoogleLoginProvider');
                 console.log(user.idToken);
                 this.http.post(UsefulConstants.LOGIN_API + '/google', user.idToken)
-                    .subscribe((userName) => {
+                    .subscribe((gmailUser) => {
                         console.log('handleGoogleToken');
-                        console.log(userName);
+                        console.log(gmailUser);
                     })
             });
     }
