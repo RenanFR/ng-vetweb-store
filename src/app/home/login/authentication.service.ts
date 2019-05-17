@@ -24,7 +24,7 @@ export class AuthenticationService {
             .http
             .post(UsefulConstants.LOGIN_API, { name, password }, { observe: 'response' })
             .pipe(tap(response => {
-                let token: string = response.body.token;
+                let token: string = response.headers.get('Authorization');
                 this.tokenService.storeToken(token);
             }));
     }
