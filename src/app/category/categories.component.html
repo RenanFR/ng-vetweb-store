@@ -17,7 +17,7 @@
             </thead>
             <tbody>
               <tr *ngFor="let category of categories">
-                <td>{{category.id}}</td>
+                <td><a class="dropdown-item" [routerLink]="['/categories', category.id]">{{category.id}}</a></td>
                 <td>{{category.description}}</td>
                 <td>{{category.amountProducts}}</td>
                 <td>{{category.percentageOfTotal}}</td>

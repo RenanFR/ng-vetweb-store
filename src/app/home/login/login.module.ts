@@ -9,6 +9,7 @@ import { EnableToLogin } from './enable.to.login';
 import { UserExistsValidator } from './user.exists.validator';
 import { SocialLoginModule, AuthServiceConfig } from 'angular5-social-login';
 import { getGoogleClientCredentials } from './google.configuration';
+import { isLoggedGuard } from './is.logged.guard';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { getGoogleClientCredentials } from './google.configuration';
   ],
   providers: [
     EnableToLogin,
+    isLoggedGuard,
     UserExistsValidator,
     {
       provide: AuthServiceConfig,

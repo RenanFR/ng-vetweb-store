@@ -7,6 +7,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CategoriesComponent } from './categories.component';
 import { CategoryFormComponent } from './category.form.component';
 import { HomeModule } from '../home/home.module';
+import { CategoryDetailsComponent } from './category.details.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -14,11 +16,13 @@ import { HomeModule } from '../home/home.module';
     HttpClientModule,
     HotTableModule.forRoot(),
     FormsModule,
+    RouterModule,
     HomeModule
   ],
   declarations: [
     CategoriesComponent,
-    CategoryFormComponent
+    CategoryFormComponent,
+    CategoryDetailsComponent
   ]
 })
 export class CategoryModule { }

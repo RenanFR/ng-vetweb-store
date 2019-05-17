@@ -9,14 +9,14 @@ import { CategoriesComponent } from './category/categories.component';
 import { AuthenticationBaseComponent } from './home/auth.base.component';
 import { EnableToLogin } from './home/login/enable.to.login';
 import { DrilldownProductComponent } from './products/drilldown.product.component';
+import { isLoggedGuard } from './home/login/is.logged.guard';
+import { CategoryDetailsComponent } from './category/category.details.component';
 
 const routes: Routes = [
   {
     path: 'login',
     component: AuthenticationBaseComponent,
-    canActivate: [
-      EnableToLogin
-    ],
+    canActivate: [EnableToLogin],
     children: [
       {
         path: '', 
@@ -26,19 +26,28 @@ const routes: Routes = [
   },
   {
     path: 'product/form',
-    component: ProductFormComponent
+    component: ProductFormComponent,
+    canActivate: [isLoggedGuard]
   },
   {
     path: 'products',
-    component: ProductsComponent
+    component: ProductsComponent,
+    canActivate: [isLoggedGuard]
   },
   {
+    path: 'categories/:categoryId',
+    component: CategoryDetailsComponent,
+    canActivate: [isLoggedGuard]
+  },  
+  {
     path: 'category/form',
-    component: CategoryFormComponent
+    component: CategoryFormComponent,
+    canActivate: [isLoggedGuard]
   },
   {
     path: 'categories',
-    component: CategoriesComponent
+    component: CategoriesComponent,
+    canActivate: [isLoggedGuard]
   },
   {
     path: 'product/drilldown',
