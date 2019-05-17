@@ -23,4 +23,8 @@ export class CategoryService {
     return this.httpClient.get<Category[]>(UsefulConstants.CATEGORIES_API);
   }
 
+  findById(id: number): Observable<Category> {
+    return this.httpClient.get<Category>(UsefulConstants.CATEGORIES_API + '/' + id);
+  }
+
 }
