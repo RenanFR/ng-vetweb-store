@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeModule } from '../home/home.module';
 import { SharedModule } from '../shared/shared.module';
 import { DrilldownProductComponent } from './drilldown.product.component';
+import { ProductImageModalComponent } from './product.img.modal.component';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { DrilldownProductComponent } from './drilldown.product.component';
   declarations: [
     ProductsComponent,
     ProductFormComponent,
-    DrilldownProductComponent
+    DrilldownProductComponent,
+    ProductImageModalComponent
   ]
 })
 export class ProductsModule { }

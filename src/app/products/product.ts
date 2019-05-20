@@ -8,6 +8,7 @@ export class Product {
     price:number;
     category:Category;
     priceRange: PriceRange;
+    filePreview: string;
 
     constructor(description: string, price: number, category:Category, priceRange: PriceRange) {
         this.description = description;

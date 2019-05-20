@@ -19,7 +19,13 @@
             <tbody>
               <tr *ngFor="let prod of products">
                 <td>{{prod.id}}</td>
-                <td>{{prod.description}}</td>
+                <td>
+                  <a href="#" data-toggle="modal" data-target="#imgProduct">
+                    {{prod.description}}
+                  </a>
+                  <vetweb-product-img-modal [product]="prod">
+                  </vetweb-product-img-modal>
+                </td>
                 <td>{{prod.price}}</td>
                 <td>{{prod.category.description}}</td>
                 <td [ngSwitch]="prod.priceRange">
