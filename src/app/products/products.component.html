@@ -20,7 +20,7 @@
               <tr *ngFor="let prod of products">
                 <td>{{prod.id}}</td>
                 <td>
-                  <a href="#" data-toggle="modal" data-target="#imgProduct">
+                  <a href="#" data-toggle="modal" data-target="#imgProduct" openImage>
                     {{prod.description}}
                   </a>
                   <vetweb-product-img-modal [product]="prod">

@@ -10,6 +10,7 @@ import { HomeModule } from '../home/home.module';
 import { SharedModule } from '../shared/shared.module';
 import { DrilldownProductComponent } from './drilldown.product.component';
 import { ProductImageModalComponent } from './product.img.modal.component';
+import { OpenImageDirective } from './open.image.directive';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { ProductImageModalComponent } from './product.img.modal.component';
     ProductsComponent,
     ProductFormComponent,
     DrilldownProductComponent,
-    ProductImageModalComponent
+    ProductImageModalComponent,
+    OpenImageDirective
   ]
 })
 export class ProductsModule { }
