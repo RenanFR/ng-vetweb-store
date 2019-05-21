@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Product } from './product';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, BehaviorSubject } from 'rxjs';
 import { UsefulConstants } from '../shared/useful.constants';
 import { TokenService } from '../shared/token.service';
 
@@ -11,8 +11,7 @@ import { TokenService } from '../shared/token.service';
 
 export class ProductsService {
 
-  newProductSubject = new Subject<boolean>();
-  newProductSubject$ = this.newProductSubject.asObservable();  
+  public newProductSubject = new BehaviorSubject<boolean>(false);
 
   constructor(
     private httpClient: HttpClient,
@@ -21,14 +20,10 @@ export class ProductsService {
   }
 
   saveProduct(product: Product, fileImage: File): Observable<any> {
-    console.log(product);
-    console.log(JSON.stringify(product));
-    console.log(fileImage);
     const formData: FormData = new FormData();
     formData.append('product', JSON.stringify(product));
     formData.append('fileImage', fileImage);
-    console.log(formData);
-    return this.httpClient.post(UsefulConstants.PRODUCTS_API, formData);
+    return this.httpClient.post(UsefulConstants.PRODUCTS_API, formData, {responseType: 'text'});
   }
 
   getProducts(): Observable<Product[]> {

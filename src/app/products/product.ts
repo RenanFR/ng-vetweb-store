@@ -9,6 +9,7 @@ export class Product {
     category:Category;
     priceRange: PriceRange;
     filePreview: string;
+    fileImage: string;
 
     constructor(description: string, price: number, category:Category, priceRange: PriceRange) {
         this.description = description;

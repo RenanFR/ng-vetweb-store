@@ -16,10 +16,11 @@ export class ProductsComponent implements OnInit {
   constructor(
       private service: ProductsService,
       private breadcrumbsService: BreadcrumbsService
-    ) {
-      service.newProductSubject$.subscribe(b => {
-        this.init();
-      });
+  ) {
+    service.newProductSubject.subscribe(b => {
+      console.log('A new product was included');
+      this.init();
+    });
   }
 
   products: Product[] = [];
