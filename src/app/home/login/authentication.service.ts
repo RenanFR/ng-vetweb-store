@@ -41,6 +41,7 @@ export class AuthenticationService {
             .then((user) => {
                 this.http.post<any>(UsefulConstants.LOGIN_API + '/google', user.idToken)
                     .subscribe((gmailUser) => {
+                        document.body.classList.remove('bg-dark');
                         let token = gmailUser.token;
                         this.tokenService.storeToken(token);
                         this.router.navigate(['products']);
