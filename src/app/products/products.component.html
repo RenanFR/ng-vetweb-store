@@ -14,26 +14,26 @@
                 <th>Price</th>
                 <th>Category</th>
                 <th>Price Range</th>
+                <th style="display: none" id="imageHeader">Image</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let prod of products">
                 <td>{{prod.id}}</td>
-                <td>
-                  <a href="#" data-toggle="modal" data-target="#imgProduct" openImage>
-                    {{prod.description}}
-                  </a>
-                  <vetweb-product-img-modal [product]="prod">
-                  </vetweb-product-img-modal>
+                <td openImage>
+                  {{prod.description}}
                 </td>
                 <td>{{prod.price}}</td>
                 <td>{{prod.category.description}}</td>
                 <td [ngSwitch]="prod.priceRange">
-                    <span *ngSwitchCase = "'ZEROTOHUNDRED'">Zero to hundred</span>
-                    <span *ngSwitchCase = "'HUNDREDTOFIVEHUNDREDS'">Hundred to five hundreds</span>
-                    <span *ngSwitchCase = "'FIVEHUNDREDSTOTHOUSAND'">Five hundreds to thousand</span>
-                    <span *ngSwitchCase = "'THOUSANDANDABOVE'">Thousand and above</span>
-                    <span *ngSwitchCase = "'UNKNOWN'">Unknown</span>
+                  <span *ngSwitchCase = "'ZEROTOHUNDRED'">Zero to hundred</span>
+                  <span *ngSwitchCase = "'HUNDREDTOFIVEHUNDREDS'">Hundred to five hundreds</span>
+                  <span *ngSwitchCase = "'FIVEHUNDREDSTOTHOUSAND'">Five hundreds to thousand</span>
+                  <span *ngSwitchCase = "'THOUSANDANDABOVE'">Thousand and above</span>
+                  <span *ngSwitchCase = "'UNKNOWN'">Unknown</span>
+                </td>
+                <td style="display: none">
+                  <vetweb-product-img-modal [product]="prod"></vetweb-product-img-modal>
                 </td>
               </tr>
             </tbody>
