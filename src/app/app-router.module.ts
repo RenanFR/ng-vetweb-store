@@ -17,6 +17,9 @@ const routes: Routes = [
     path: 'login',
     component: AuthenticationBaseComponent,
     canActivate: [EnableToLogin],
+    data: {
+      title: 'Authentication'
+    },
     children: [
       {
         path: '', 
@@ -27,31 +30,49 @@ const routes: Routes = [
   {
     path: 'product/form',
     component: ProductFormComponent,
-    canActivate: [isLoggedGuard]
+    canActivate: [isLoggedGuard],
+    data: {
+      title: 'New product form'
+    }
   },
   {
     path: 'products',
     component: ProductsComponent,
-    canActivate: [isLoggedGuard]
+    canActivate: [isLoggedGuard],
+    data: {
+      title: 'List of products'
+    }
   },
   {
     path: 'categories/:categoryId',
     component: CategoryDetailsComponent,
-    canActivate: [isLoggedGuard]
+    canActivate: [isLoggedGuard],
+    data: {
+      title: 'Category details'
+    }
   },  
   {
     path: 'category/form',
     component: CategoryFormComponent,
-    canActivate: [isLoggedGuard]
+    canActivate: [isLoggedGuard],
+    data: {
+      title: 'New category form'
+    }
   },
   {
     path: 'categories',
     component: CategoriesComponent,
-    canActivate: [isLoggedGuard]
+    canActivate: [isLoggedGuard],
+    data: {
+      title: 'List of categories'
+    }
   },
   {
     path: 'product/drilldown',
-    component: DrilldownProductComponent
+    component: DrilldownProductComponent,
+    data: {
+      title: 'Product drill down'
+    }
   },  
   {
     path: '',
