@@ -59,7 +59,16 @@
     </div>
     
     </fieldset>
-    <button [disabled]="productForm.invalid" type="submit" class="btn btn-primary btn-block">Submit</button>
+
+    <div *ngIf="!uploadProgress; else showProgress">
+      <button [disabled]="productForm.invalid" type="submit" class="btn btn-primary btn-block">Submit</button>
+    </div>
+
+    <ng-template #showProgress>
+      <div class="text-center display-6">
+          Upload progress on {{ uploadProgress }} percent
+      </div>
+    </ng-template>    
 
   </form>
 </vetweb-layout>  

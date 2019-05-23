@@ -23,7 +23,12 @@ export class ProductsService {
     const formData: FormData = new FormData();
     formData.append('product', JSON.stringify(product));
     formData.append('fileImage', fileImage);
-    return this.httpClient.post(UsefulConstants.PRODUCTS_API, formData, {responseType: 'text'});
+    return this.httpClient.post(UsefulConstants.PRODUCTS_API, formData, 
+      {
+        responseType: 'text',
+        observe: 'events',
+        reportProgress: true
+      });
   }
 
   getProducts(): Observable<Product[]> {
