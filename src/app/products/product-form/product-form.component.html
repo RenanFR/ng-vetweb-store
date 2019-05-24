@@ -20,7 +20,7 @@
         <div class="text-center">
             <img class="img-thumbnail" [src]="filePreview" alt="Preview" width="100" height="50">          
         </div>
-    </ng-template>    
+    </ng-template>
 
     <!-- Description input-->
     <div class="form-group">
@@ -34,7 +34,7 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="price">Price</label>  
       <div class="col-md-4">
-          <input formControlName="price" id="price" name="price" type="number" placeholder="" class="form-control input-md">
+          <input formControlName="price" id="price" name="price" type="number" placeholder="" class="form-control input-md" (change)="adjustPriceRange($event)" >
       </div>
     </div>
 

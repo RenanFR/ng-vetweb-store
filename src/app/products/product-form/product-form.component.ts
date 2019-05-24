@@ -25,6 +25,7 @@ export class ProductFormComponent implements OnInit {
   fileImage: File;
   filePreview: string;
   uploadProgress: number = 0;
+  currentPriceRange: PriceRange = PriceRange.UNKNOWN;
 
   constructor(
       private formBuilder: FormBuilder,
@@ -49,7 +50,7 @@ export class ProductFormComponent implements OnInit {
       });
   }
 
-  onSubmit(): void {
+  public onSubmit(): void {
     const description = this.productForm.get('description').value;
     const price = this.productForm.get('price').value;
     const category = this.productForm.get('category').value;
@@ -71,13 +72,31 @@ export class ProductFormComponent implements OnInit {
     });
   }
 
-  handleFile(file: File) {
+  public handleFile(file: File): void {
     this.fileImage = file;
     let reader = new FileReader();
     reader.readAsDataURL(file);
     reader.onload = (event: any) => {
       this.filePreview = event.target.result;
     };
+  }
+
+  public adjustPriceRange(price: any): void {
+    let productPrice: number = price.target.value;
+    console.log(productPrice);
+    let rangeInput = this.productForm.get('priceRange');
+    console.log(rangeInput.value);
+    if (productPrice >= 0 && productPrice <= 100) {
+      rangeInput.setValue(PriceRange.ZEROTOHUNDRED);
+    } else if (productPrice > 100 && productPrice <= 500) {
+      rangeInput.setValue(PriceRange.HUNDREDTOFIVEHUNDREDS);
+    } else if (productPrice > 500 && productPrice <= 1000) {
+      rangeInput.setValue(PriceRange.FIVEHUNDREDSTOTHOUSAND);
+    } else if (productPrice > 1000 && productPrice <= 10000) {
+      rangeInput.setValue(PriceRange.THOUSANDANDABOVE);
+    } else {
+      rangeInput.setValue(PriceRange.UNKNOWN);
+    }
   }
 
 }
