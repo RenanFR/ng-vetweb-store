@@ -19,6 +19,9 @@
     <ng-template #templatePreview>
         <div class="text-center">
             <img class="img-thumbnail" [src]="filePreview" alt="Preview" width="100" height="50">          
+            <button type="button" (click)="changeImage()" class="btn btn-primary">
+              <i class="fa fa-window-close fa-lg align-middle"></i>
+            </button>
         </div>
     </ng-template>
 

@@ -81,6 +81,10 @@ export class ProductFormComponent implements OnInit {
     };
   }
 
+  public changeImage(): void {
+    this.filePreview = null;
+  }
+
   public adjustPriceRange(price: any): void {
     let productPrice: number = price.target.value;
     console.log(productPrice);
