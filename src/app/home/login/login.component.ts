@@ -8,7 +8,8 @@ import { TokenService } from 'src/app/shared/token.service';
 import { UserExistsValidator } from './user.exists.validator';
 
 @Component({
-  templateUrl: './login.component.html'
+  templateUrl: './login.component.html',
+  styleUrls: [ './login.component.css' ]
 })
 export class LoginComponent implements OnInit {
 
@@ -42,8 +43,8 @@ export class LoginComponent implements OnInit {
       );
   }
 
-  public doGoogleLogin(): void {
-    this.authService.doGoogleLogin();
+  public doLoginWithGoogle(): void {
+    this.authService.doLoginWithGoogle();
   }
 
   ngOnInit() {

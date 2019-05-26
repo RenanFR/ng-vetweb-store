@@ -35,7 +35,7 @@ export class AuthenticationService {
             .get<boolean>(UsefulConstants.LOGIN_API + '/exists/' + name);
     }
 
-    public doGoogleLogin(): void {
+    public doLoginWithGoogle(): void {
         let socialMedia = GoogleLoginProvider.PROVIDER_ID;
         this.socialAuth.signIn(socialMedia)
             .then((user) => {
