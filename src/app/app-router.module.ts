@@ -8,7 +8,6 @@ import { CategoryFormComponent } from './category/category.form.component';
 import { CategoriesComponent } from './category/categories.component';
 import { AuthenticationBaseComponent } from './home/auth.base.component';
 import { EnableToLogin } from './home/login/enable.to.login';
-import { DrilldownProductComponent } from './products/drilldown.product.component';
 import { isLoggedGuard } from './home/login/is.logged.guard';
 import { CategoryDetailsComponent } from './category/category.details.component';
 
@@ -65,13 +64,6 @@ const routes: Routes = [
     canActivate: [isLoggedGuard],
     data: {
       title: 'List of categories'
-    }
-  },
-  {
-    path: 'product/drilldown',
-    component: DrilldownProductComponent,
-    data: {
-      title: 'Product drill down'
     }
   },  
   {
