@@ -3,7 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  LOGIN_API: 'http://localhost:8080/vetweb/store/api/login',
+  PRODUCTS_API: 'http://localhost:8080/vetweb/store/api/products',
+  CATEGORIES_API: 'http://localhost:8080/vetweb/store/api/categories'
 };
 
 /*
