@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Subject, Observable } from "rxjs";
 import { LoadingType } from "./loading.type";
+import { startWith } from "rxjs/operators";
 
 @Injectable()
 export class ProgressLoaderService {
@@ -8,7 +9,7 @@ export class ProgressLoaderService {
     private subjectLoader = new Subject<LoadingType>();
 
     public loading(): Observable<LoadingType> {
-        return this.subjectLoader.asObservable();
+        return this.subjectLoader.asObservable().pipe(startWith(LoadingType.STOP));
     }
 
     public start(): void {

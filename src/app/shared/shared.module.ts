@@ -8,6 +8,7 @@ import { RequestInterceptor } from "./request.interceptor";
 import { GlobalErrorHandler } from "./global.error.handler";
 import { ErrorInterceptor } from "./error.interceptor";
 import { ProgressLoaderService } from "./progress.loader.service";
+import { LoaderComponent } from "./loader.component";
 
 @NgModule({
     imports: [
@@ -16,12 +17,14 @@ import { ProgressLoaderService } from "./progress.loader.service";
     ],
     declarations:[
         GetEnumerationValues,
-        KeysPipe
+        KeysPipe,
+        LoaderComponent
     ],
     exports:[
         MessageCardsModule,
         GetEnumerationValues,
-        KeysPipe
+        KeysPipe,
+        LoaderComponent
     ],
     providers: [
         {

@@ -1,4 +1,4 @@
 export enum LoadingType {
-    START,
-    STOP
+    START = 'loading',
+    STOP = 'stopped'
 }
