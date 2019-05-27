@@ -3,6 +3,7 @@ import { Category } from './category';
 import { CategoryService } from './category.service';
 import { BreadcrumbsService } from '../home/breadcrumbs.service';
 import { Breadcrumb } from '../home/breadcrumb';
+import { NotificationService } from '../shared/notification.service';
 
 @Component({
   selector: 'vetweb-category-form',
@@ -16,6 +17,7 @@ export class CategoryFormComponent implements OnInit {
 
   constructor(
     private service:CategoryService,
+    private notificationService: NotificationService,    
     private breadcrumbsService:BreadcrumbsService
   ) { }
 
@@ -24,6 +26,7 @@ export class CategoryFormComponent implements OnInit {
     .subscribe((resp) => {
       console.log(resp.toString());
       this.response = resp.toString();
+      this.notificationService.success('New category included with description ' + (this.category.description), true);
     });
   }
   

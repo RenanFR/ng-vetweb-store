@@ -10,6 +10,7 @@ import { Breadcrumb } from 'src/app/home/breadcrumb';
 import { BreadcrumbsService } from 'src/app/home/breadcrumbs.service';
 import { HttpEvent, HttpEventType } from '@angular/common/http';
 import { finalize } from 'rxjs/operators';
+import { NotificationService } from 'src/app/shared/notification.service';
 
 @Component({
   selector: 'app-product-form',
@@ -32,7 +33,8 @@ export class ProductFormComponent implements OnInit {
       private categoryService: CategoryService,
       private router: Router,
       private service: ProductsService,
-      private breadcrumbsService:BreadcrumbsService 
+      private notificationService: NotificationService,
+      private breadcrumbsService:BreadcrumbsService
   ) { }
 
   ngOnInit() {
@@ -59,6 +61,7 @@ export class ProductFormComponent implements OnInit {
     this.service.saveProduct(this.product, this.fileImage)
       .pipe(finalize(() => {
         console.log('New product requisition ended');
+        this.notificationService.success('Product included with description ' + (description), true);
         this.router.navigateByUrl('products');
       }))
       .subscribe((event: HttpEvent<any>) => {
@@ -69,7 +72,10 @@ export class ProductFormComponent implements OnInit {
           else if (event.type == HttpEventType.Response) {
             this.service.newProductSubject.next(true);
           }
-    });
+    },
+      (error) => {
+        this.notificationService.error('Error on product inclusion or file upload', true);
+      });
   }
 
   public handleFile(file: File): void {
