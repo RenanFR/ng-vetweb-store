@@ -7,6 +7,7 @@ import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { RequestInterceptor } from "./request.interceptor";
 import { GlobalErrorHandler } from "./global.error.handler";
 import { ErrorInterceptor } from "./error.interceptor";
+import { ProgressLoaderService } from "./progress.loader.service";
 
 @NgModule({
     imports: [
@@ -36,7 +37,8 @@ import { ErrorInterceptor } from "./error.interceptor";
         {
             provide: ErrorHandler,
             useClass: GlobalErrorHandler
-        }        
+        },
+        ProgressLoaderService
     ]
 })
 export class SharedModule {}
