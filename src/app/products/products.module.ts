@@ -8,7 +8,6 @@ import { ProductFormComponent } from './product-form/product-form.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeModule } from '../home/home.module';
 import { SharedModule } from '../shared/shared.module';
-import { DrilldownProductComponent } from './drilldown.product.component';
 import { ProductImageModalComponent } from './product.img.modal.component';
 import { OpenImageDirective } from './open.image.directive';
 
@@ -24,7 +23,6 @@ import { OpenImageDirective } from './open.image.directive';
   declarations: [
     ProductsComponent,
     ProductFormComponent,
-    DrilldownProductComponent,
     ProductImageModalComponent,
     OpenImageDirective
   ]
