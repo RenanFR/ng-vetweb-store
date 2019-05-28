@@ -22,6 +22,7 @@
     "@angular/router": "^6.0.3",
     "@fortawesome/fontawesome-free": "^5.7.0",
     "@handsontable/angular": "^4.0.0",
+    "@types/stacktrace-js": "0.0.32",
     "angular5-social-login": "^1.0.9",
     "bootstrap": "^4.2.1",
     "chart.js": "2.7.3",
@@ -33,6 +34,7 @@
     "jwt-decode": "^2.2.0",
     "rxjs": "6.0.0",
     "rxjs-compat": "^6.5.2",
+    "stacktrace-js": "^2.0.0",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {

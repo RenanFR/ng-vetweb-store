@@ -6,6 +6,7 @@ export const environment = {
   production: false,
   LOGIN_API: 'http://localhost:8080/vetweb/store/api/login',
   PRODUCTS_API: 'http://localhost:8080/vetweb/store/api/products',
+  LOGGING_API: 'http://localhost:8080/vetweb/store/api/log',
   CATEGORIES_API: 'http://localhost:8080/vetweb/store/api/categories'
 };
 
