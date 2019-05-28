@@ -6,6 +6,7 @@ import { UserInfo } from './user.info';
 import { PlatformRuntimeDetectorService } from 'src/app/shared/platform.runtime.detector.service';
 import { TokenService } from 'src/app/shared/token.service';
 import { UserExistsValidator } from './user.exists.validator';
+import { userPasswordIsDifferent } from './user.password.is.different.validation';
 
 @Component({
   templateUrl: './login.component.html',
@@ -52,6 +53,8 @@ export class LoginComponent implements OnInit {
     this.authForm = this.authFormBuilder.group({
         name:['', [Validators.required], [this.userExistsValidator.checkNameIsTaken()]],
         password:['', Validators.required]
+    }, {
+        validator: userPasswordIsDifferent
     });
   }
 
