@@ -17,11 +17,13 @@ export class CategoryFormComponent implements OnInit {
 
   constructor(
     private service:CategoryService,
-    private notificationService: NotificationService,    
+    private notificationService: NotificationService,
     private breadcrumbsService:BreadcrumbsService
   ) { }
 
   save() {
+    this.category.userRegistration = localStorage.getItem('user');
+    this.category.dateRegistration = new Date().getTime().toString();
     this.service.save(this.category)
     .subscribe((resp) => {
       console.log(resp.toString());
